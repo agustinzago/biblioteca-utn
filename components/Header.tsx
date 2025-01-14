@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -9,7 +10,9 @@ const Header = () => {
     const pathname = usePathname();
   return (
     <header className='flex justify-between items-center my-10 gap-5'>
-        <Link href='/'>Inicio</Link>
+        <Link href='/'>
+            <Image src='/icons/logo.svg' alt='Logo' width={40} height={40} />
+        </Link>
 
         <ul className='flex flex-row items-center gap-8'>
             <li>
