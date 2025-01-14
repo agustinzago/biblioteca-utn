@@ -40,10 +40,10 @@ const BookOverview = ({
               </p>
             </div>
             <p className='book-description'>{description}</p>
-              <Button className='button-overview_btn'>
+              <Button className='book-overview_btn'>
                 <Image src='/icons/book.svg' alt='book' width={20} height={20} />
                 <p className='font-bebas-neue text-xl text-dark-100'>
-                  Borrow
+                  Pedir
                 </p>
               </Button>
         </div>
