@@ -22,7 +22,7 @@ const BookList = ( { title, books, containerClassName }: Props) => {
         </ul>
       
     </section>
-  );
+  ); 
 };
 
 export default BookList;

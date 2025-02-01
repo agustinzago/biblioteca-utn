@@ -20,7 +20,7 @@ const BookCard = ({ id, title, genre, color, cover, isLoanedBook = false}: Book)
                     <Image src='/icons/calendar.svg' alt='calendar' width={18} height={18} className='object-contain' />
                     <p className='text-light-100'> 11 dias para ser devuelto</p>
                 </div>
-                <Button className='book-btn' >Descargar Recibo</Button>
+                <Button className='book-btn'>Descargar Recibo</Button>
             </div>
             
         )}
