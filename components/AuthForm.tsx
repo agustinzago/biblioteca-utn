@@ -16,6 +16,9 @@ import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { FIELD_NAMES, FIELD_TYPES } from '@/app/constants';
 import FileUpload from './FileUpload';
+import { toast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
+
 
 interface Props<T extends FieldValues> {
     type: 'SIGN-IN' | 'SIGN-UP';
@@ -35,8 +38,25 @@ const AuthForm = <T extends FieldValues>({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as DefaultValues<T>,
   });
+
+  const router = useRouter();
  
-  const handleSubmit: SubmitHandler<T> = async (data) => {};
+  const handleSubmit: SubmitHandler<T> = async (data) => {
+    const result = await onSubmit(data);
+    if (result.success) {
+        toast({
+            title: `${isSignIn ? 'Welcome back!' : 'Welcome!'} `,
+            description: `You have successfully ${isSignIn ? 'signed in' : 'signed up'}`,
+          });
+          router.push('/');
+    } else {
+        toast({
+            title: `Error ${isSignIn ? 'signing in' : 'signing up'}`,
+            description: `Error al ${isSignIn ? 'iniciar sesion' : 'registrarse'}`,
+            variant: 'destructive',
+        });
+    }
+  };
 
   return (
     <div className='flex flex-col gap-4'>
